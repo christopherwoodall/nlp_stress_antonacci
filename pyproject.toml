@@ -16,6 +16,15 @@ dependencies = [
     "torch",
     "transformers",
     "whisperx",
+    "matplotlib",
+    "seaborn",
+    "umap-learn",
+    "hdbscan",
+    "skl2onnx",
+    "onnxruntime",
+    "openpyxl",
+    "statsmodels",
+    "joblib",
 ]
 
 [project.scripts]
@@ -26,6 +35,7 @@ embeddings-generate = "nlp_stress.generate_embeddings:main"
 lda-preprocess = "nlp_stress.lda_preprocess:main"
 lda-aggregate = "nlp_stress.lda_aggregate:main"
 pull-dataset = "nlp_stress.pull_dataset:main"
+analysis = "analysis.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/nlp_stress"]
+packages = ["src/nlp_stress", "src/analysis"]
