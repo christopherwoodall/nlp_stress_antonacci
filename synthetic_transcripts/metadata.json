@@ -1,0 +1,1137 @@
+{
+  "config_path": "config/example_generator.yaml",
+  "output_dir": "synthetic_transcripts",
+  "mock": true,
+  "models": {
+    "gpt-4o": {
+      "provider": "openrouter",
+      "model_id": "openai/gpt-4o"
+    },
+    "claude-sonnet": {
+      "provider": "openrouter",
+      "model_id": "anthropic/claude-3.5-sonnet"
+    }
+  },
+  "responses": [
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 1,
+      "file": "gpt-4o/tesi_1_1_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 2,
+      "file": "gpt-4o/tesi_1_1_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 3,
+      "file": "gpt-4o/tesi_1_1_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 4,
+      "file": "gpt-4o/tesi_1_1_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 5,
+      "file": "gpt-4o/tesi_1_1_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 1,
+      "file": "gpt-4o/tesi_1_2_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 2,
+      "file": "gpt-4o/tesi_1_2_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 3,
+      "file": "gpt-4o/tesi_1_2_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 4,
+      "file": "gpt-4o/tesi_1_2_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 5,
+      "file": "gpt-4o/tesi_1_2_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 1,
+      "file": "gpt-4o/tesi_1_3_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 2,
+      "file": "gpt-4o/tesi_1_3_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 3,
+      "file": "gpt-4o/tesi_1_3_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 4,
+      "file": "gpt-4o/tesi_1_3_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 5,
+      "file": "gpt-4o/tesi_1_3_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 1,
+      "file": "gpt-4o/tesi_1_4_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 2,
+      "file": "gpt-4o/tesi_1_4_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 3,
+      "file": "gpt-4o/tesi_1_4_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 4,
+      "file": "gpt-4o/tesi_1_4_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 5,
+      "file": "gpt-4o/tesi_1_4_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 1,
+      "file": "gpt-4o/tesi_1_5_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 2,
+      "file": "gpt-4o/tesi_1_5_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 3,
+      "file": "gpt-4o/tesi_1_5_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 4,
+      "file": "gpt-4o/tesi_1_5_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 5,
+      "file": "gpt-4o/tesi_1_5_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 1,
+      "file": "gpt-4o/tesi_1_6_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 2,
+      "file": "gpt-4o/tesi_1_6_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 3,
+      "file": "gpt-4o/tesi_1_6_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 4,
+      "file": "gpt-4o/tesi_1_6_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 5,
+      "file": "gpt-4o/tesi_1_6_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 1,
+      "file": "gpt-4o/tesi_2_1_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 2,
+      "file": "gpt-4o/tesi_2_1_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 3,
+      "file": "gpt-4o/tesi_2_1_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 4,
+      "file": "gpt-4o/tesi_2_1_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 5,
+      "file": "gpt-4o/tesi_2_1_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 1,
+      "file": "gpt-4o/tesi_2_2_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 2,
+      "file": "gpt-4o/tesi_2_2_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 3,
+      "file": "gpt-4o/tesi_2_2_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 4,
+      "file": "gpt-4o/tesi_2_2_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 5,
+      "file": "gpt-4o/tesi_2_2_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 1,
+      "file": "gpt-4o/tesi_2_3_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 2,
+      "file": "gpt-4o/tesi_2_3_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 3,
+      "file": "gpt-4o/tesi_2_3_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 4,
+      "file": "gpt-4o/tesi_2_3_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 5,
+      "file": "gpt-4o/tesi_2_3_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 1,
+      "file": "gpt-4o/tesi_2_4_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 2,
+      "file": "gpt-4o/tesi_2_4_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 3,
+      "file": "gpt-4o/tesi_2_4_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 4,
+      "file": "gpt-4o/tesi_2_4_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 5,
+      "file": "gpt-4o/tesi_2_4_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 1,
+      "file": "gpt-4o/tesi_2_5_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 2,
+      "file": "gpt-4o/tesi_2_5_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 3,
+      "file": "gpt-4o/tesi_2_5_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 4,
+      "file": "gpt-4o/tesi_2_5_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 5,
+      "file": "gpt-4o/tesi_2_5_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 1,
+      "file": "gpt-4o/tesi_3_1_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 2,
+      "file": "gpt-4o/tesi_3_1_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 3,
+      "file": "gpt-4o/tesi_3_1_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 4,
+      "file": "gpt-4o/tesi_3_1_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 5,
+      "file": "gpt-4o/tesi_3_1_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 1,
+      "file": "gpt-4o/tesi_3_2_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 2,
+      "file": "gpt-4o/tesi_3_2_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 3,
+      "file": "gpt-4o/tesi_3_2_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 4,
+      "file": "gpt-4o/tesi_3_2_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 5,
+      "file": "gpt-4o/tesi_3_2_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 1,
+      "file": "gpt-4o/tesi_4_1_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 2,
+      "file": "gpt-4o/tesi_4_1_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 3,
+      "file": "gpt-4o/tesi_4_1_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 4,
+      "file": "gpt-4o/tesi_4_1_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 5,
+      "file": "gpt-4o/tesi_4_1_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 1,
+      "file": "gpt-4o/tesi_5_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 2,
+      "file": "gpt-4o/tesi_5_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 3,
+      "file": "gpt-4o/tesi_5_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 4,
+      "file": "gpt-4o/tesi_5_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 5,
+      "file": "gpt-4o/tesi_5_run5.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 1,
+      "file": "gpt-4o/tesi_6_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 2,
+      "file": "gpt-4o/tesi_6_run2.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 3,
+      "file": "gpt-4o/tesi_6_run3.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 4,
+      "file": "gpt-4o/tesi_6_run4.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 5,
+      "file": "gpt-4o/tesi_6_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_1_1_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_1_1_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_1_1_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_1_1_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_1_1_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_1_2_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_1_2_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_1_2_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_1_2_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_2",
+      "question_text": "Have you ever seen a really bad accident that you weren't actually in?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_1_2_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_1_3_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_1_3_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_1_3_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_1_3_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_3",
+      "question_text": "Have you ever been in a really bad storm, like a tornado, a hurricane, or a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_1_3_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_1_4_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_1_4_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_1_4_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_1_4_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_4",
+      "question_text": "Have you ever known someone who got really hurt or sick, or even died?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_1_4_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_1_5_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_1_5_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_1_5_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_1_5_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_5",
+      "question_text": "Have you ever had to stay overnight at the hospital or have an operation?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_1_5_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_1_6_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_1_6_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_1_6_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_1_6_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_1_6",
+      "question_text": "Have you ever had to go away from your parents or family for a long time? Like going to live with another family, or a boarding school or camp, or a hospital or detention center? Or did your mother, father, or someone else who looks after you ever go away for a long time?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_1_6_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_2_1_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_2_1_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_2_1_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_2_1_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_1",
+      "question_text": "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014like beating, shaking, biting, burning or choking you, or stabbing you with a knife or shooting you with a gun? Or has anyone ever punished you so hard that you were hurt really badly or had to go to the doctor or hospital\u2014like a spanking, whipping, or beating?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_2_1_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_2_2_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_2_2_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_2_2_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_2_2_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_2",
+      "question_text": "Has someone ever told you they were going to hurt you really badly, or acted like they were going to hurt you really badly?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_2_2_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_2_3_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_2_3_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_2_3_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_2_3_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_3",
+      "question_text": "Has someone ever tried to steal from you? Or from a family member or friend when you were right there?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_2_3_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_2_4_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_2_4_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_2_4_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_2_4_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_4",
+      "question_text": "Has someone ever kidnapped you or taken you away when they weren't supposed to? Or has someone in your family or a close friend ever been kidnapped?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_2_4_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_2_5_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_2_5_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_2_5_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_2_5_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_2_5",
+      "question_text": "Have you ever been attacked by a dog or another animal?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_2_5_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_3_1_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_3_1_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_3_1_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_3_1_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_1",
+      "question_text": "Have you ever seen people in your family fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_3_1_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_3_2_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_3_2_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_3_2_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_3_2_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_3_2",
+      "question_text": "Even if they weren't physically attacking each other, have you ever heard people in your family really yelling and screaming at each other a lot?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_3_2_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_4_1_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_4_1_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_4_1_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_4_1_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_4_1",
+      "question_text": "Have you ever seen people outside your home fighting or attacking each other? Or shooting with a gun? Or stabbing with a knife? Or beating each other up?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_4_1_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 1,
+      "file": "claude-sonnet/tesi_5_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 2,
+      "file": "claude-sonnet/tesi_5_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 3,
+      "file": "claude-sonnet/tesi_5_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 4,
+      "file": "claude-sonnet/tesi_5_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_5",
+      "question_text": "Has someone ever touched your body in a way you didn't want them to or in a way that made you uncomfortable?",
+      "run": 5,
+      "file": "claude-sonnet/tesi_5_run5.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 1,
+      "file": "claude-sonnet/tesi_6_run1.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 2,
+      "file": "claude-sonnet/tesi_6_run2.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 3,
+      "file": "claude-sonnet/tesi_6_run3.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 4,
+      "file": "claude-sonnet/tesi_6_run4.txt"
+    },
+    {
+      "model": "claude-sonnet",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 5,
+      "file": "claude-sonnet/tesi_6_run5.txt"
+    }
+  ]
+}

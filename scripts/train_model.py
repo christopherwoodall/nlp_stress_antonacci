@@ -116,9 +116,11 @@ def train_and_save(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Split for validation metrics
+    # 80/20 train/test split, reproducible with random_state
     X_train, X_test, y_train, y_test, ids_train, ids_test = train_test_split(
         X, y, ids, test_size=0.2, random_state=random_state, stratify=None,
     )
+    print(f"  Train/test split: {len(X_train)} / {len(X_test)} samples ({len(X_train)/len(X)*100:.0f}%/{len(X_test)/len(X)*100:.0f}%)")
 
     # Scale
     scaler = StandardScaler()
