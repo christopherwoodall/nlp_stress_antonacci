@@ -1,3 +1,20 @@
+# Synthetic TESI Response Generator Configuration
+#
+# This file configures the LLM models and TESI questions used by the synthetic
+# generator to create fake interview responses for pipeline evaluation.
+#
+# Usage:
+#   synthetic generate --config config/example_generator.yaml --output-dir synthetic_transcripts/
+#
+# Structure:
+#   models    — dict of {model_name: {provider, model_id, temperature, max_tokens}}
+#   system_prompt — persona prompt sent to all models
+#   questions — list of {id, text} TESI-C questions
+#   settings  — {responses_per_question, output_dir}
+#
+# The 16 questions below were extracted from the VA TESI-C PDF:
+# https://www.ptsd.va.gov/professional/assessment/documents/TESI-C.pdf
+
 models:
   gpt-4o:
     provider: openrouter
