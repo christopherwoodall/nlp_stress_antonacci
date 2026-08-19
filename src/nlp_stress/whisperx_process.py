@@ -1,10 +1,12 @@
 """
-This script is designed to be called by a cluster batch job (e.g., a shell script).
+Transcribe and diarize a single audio file using the WhisperX pipeline.
+
+Intended to be called by a cluster batch job (e.g. a shell script).
 It processes a SINGLE audio file using the WhisperX pipeline.
 
 It takes command-line arguments for the audio file, subject ID, and output
 directory, then performs the following steps:
-1.  Converts the audio file to .wav if needed (e.g., from .wma).
+1.  Converts the audio file to .wav if needed (e.g. from .wma).
 2.  Transcribes the audio using WhisperX (large-v2).
 3.  Aligns the transcription for accurate timestamps.
 4.  Performs speaker diarization using PyAnnote.
@@ -18,8 +20,12 @@ import os
 import sys
 import argparse
 import subprocess
+
 import torch
 import whisperx
+
+
+# --- Helper Functions ---
 
 def convert_to_wav(input_file, output_file):
     """Converts an audio file to WAV format using FFmpeg."""
@@ -36,6 +42,9 @@ def convert_to_wav(input_file, output_file):
         # print ffmpeg's error message to stderr for cluster logging
         print(f"FFmpeg conversion failed for {input_file}: {e.stderr}", file=sys.stderr)
         return False
+
+
+# --- Main ---
 
 def main():
     # setup argument parser to take inputs from the shell script
@@ -112,7 +121,7 @@ def main():
         diarize_segments = diarize_model(
             audio,
             min_speakers=min_speakers if min_speakers else None,
-            max_speakers=max_speakers if max_speakers else None
+            max_speakers=max_speakers if max_speakers else None,
         )
 
         result = whisperx.assign_word_speakers(diarize_segments, result)
@@ -135,11 +144,13 @@ def main():
 
     finally:
         # clean up temporary wav file if one was created
-        if ('temp_wav_file' in locals() and
-            audio_file == temp_wav_file and
-            os.path.exists(temp_wav_file)):
-            
+        if (
+            "temp_wav_file" in locals()
+            and audio_file == temp_wav_file
+            and os.path.exists(temp_wav_file)
+        ):
             os.remove(temp_wav_file)
+
 
 if __name__ == "__main__":
     main()

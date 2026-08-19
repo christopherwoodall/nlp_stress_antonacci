@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nlp-stress-antonacci"
+version = "0.1.0"
+description = "NLP pipeline for processing TESI stress interviews and predicting psychopathology across adolescence"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "nltk",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "torch",
+    "transformers",
+    "whisperx",
+]
+
+[project.scripts]
+whisperx-process = "nlp_stress.whisperx_process:main"
+speaker-parse = "nlp_stress.speaker_parsing:main"
+tfidf-generate = "nlp_stress.tfidf_generation:main"
+embeddings-generate = "nlp_stress.generate_embeddings:main"
+lda-preprocess = "nlp_stress.lda_preprocess:main"
+lda-aggregate = "nlp_stress.lda_aggregate:main"
+pull-dataset = "nlp_stress.pull_dataset:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nlp_stress"]
