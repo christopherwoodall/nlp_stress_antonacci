@@ -25,6 +25,10 @@ dependencies = [
     "openpyxl",
     "statsmodels",
     "joblib",
+    "requests",
+    "pyyaml",
+    "datasets",
+    "tqdm",
 ]
 
 [project.scripts]
@@ -36,6 +40,8 @@ lda-preprocess = "nlp_stress.lda_preprocess:main"
 lda-aggregate = "nlp_stress.lda_aggregate:main"
 pull-dataset = "nlp_stress.pull_dataset:main"
 analysis = "analysis.cli:main"
+datasets-load = "external_datasets.cli:main"
+synthetic = "synthetic.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/nlp_stress", "src/analysis"]
+packages = ["src/nlp_stress", "src/analysis", "src/external_datasets", "src/synthetic"]

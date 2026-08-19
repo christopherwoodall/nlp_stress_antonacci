@@ -126,3 +126,92 @@ Key figures from the R notebooks are replicated with matplotlib/seaborn:
 The original `.venv` was on Python 3.14, which broke C-extension builds for some dependencies (e.g. `ruamel-yaml-clib`). We recreated the venv with Python 3.12 and installed the package in editable mode.
 
 ---
+
+## 2026-08-19 — Public Substitute Datasets, Synthetic Generator, Evaluator & Visualizer
+
+### What changed
+
+Since the original ELS clinical interview data is not publicly available, we built a complete substitute pipeline:
+1. **Public dataset loaders** that download and unify labeled depression/distress datasets
+2. **Label mapping** to a unified severity scale (0–3) and binary flag (0/1) matching the original study's outcomes
+3. **Synthetic TESI response generator** using OpenRouter API with real TESI-C questions
+4. **Evaluator** that runs generated text through trained ONNX models
+5. **Visualizer** producing blog-quality comparison plots of LLM "depression scores"
+
+### Files added
+
+- `src/external_datasets/__init__.py`
+- `src/external_datasets/loader.py` — MHDialog, Zenodo, Dreaddit, joangaes loaders with label mapping
+- `src/external_datasets/cli.py` — `datasets-load` entry point
+- `src/synthetic/__init__.py`
+- `src/synthetic/generator.py` — OpenRouter API client for TESI question responses
+- `src/synthetic/evaluator.py` — feature extraction + ONNX prediction on synthetic transcripts
+- `src/synthetic/visualizer.py` — matplotlib/seaborn comparison plots
+- `src/synthetic/cli.py` — unified `synthetic` entry point with `generate`, `evaluate`, `visualize` subcommands
+- `config/example_generator.yaml` — example config with 16 real TESI-C questions from VA PDF
+- `data/TESI-C.pdf` — downloaded from VA National Center for PTSD
+- `tests/test_external_datasets_loader.py` — unit tests for dataset loaders
+- `tests/test_synthetic_generator.py` — unit tests for config loading
+- `tests/test_synthetic_evaluator.py` — unit tests for transcript loading
+- `NOTE.md` — research note explaining the substitute dataset strategy and limitations
+- `PIPELINE.md` — end-to-end guide from data loading to LLM comparison plots
+
+### New dependencies
+
+`requests`, `pyyaml`, `datasets`, `tqdm`
+
+### New entry points
+
+| Command | Source module | What it does |
+|---|---|---|
+| `datasets-load` | `external_datasets.cli:main` | Download and unify public substitute datasets |
+| `synthetic` | `synthetic.cli:main` | Unified CLI for generate / evaluate / visualize |
+
+### Usage
+
+```bash
+# Load public datasets
+datasets-load --sources all --output data/unified_dataset.csv
+
+# Generate synthetic TESI responses (requires OPENROUTER_API_KEY)
+synthetic generate --config config/example_generator.yaml --output-dir synthetic_transcripts/
+
+# Evaluate LLM responses with trained models
+synthetic evaluate --transcripts synthetic_transcripts/ --models-dir results/ --output results/evaluations.csv
+
+# Create comparison plots
+synthetic visualize --evaluations results/evaluations.csv --output-dir results/synthetic/
+```
+
+### Label mapping
+
+| Dataset | Original Label | Severity | Binary |
+|---------|---------------|----------|--------|
+| MHDialog | No | 0 | 0 |
+| MHDialog | Minor | 1 | 1 |
+| MHDialog | Moderate | 2 | 1 |
+| MHDialog | Severe | 3 | 1 |
+| Zenodo | Any depression type | 2 | 1 |
+| Dreaddit | no_stress | 0 | 0 |
+| Dreaddit | stress | 1 | 1 |
+| joangaes | 0 (not depressed) | 0 | 0 |
+| joangaes | 1 (depressed) | 2 | 1 |
+
+### TESI-C questions
+
+The 16 TESI-C questions were extracted from the VA PDF (`data/TESI-C.pdf`) downloaded from:
+https://www.ptsd.va.gov/professional/assessment/documents/TESI-C.pdf
+
+Questions cover: accidents, witnessed accidents, disasters, bereavement, hospitalization, separation, physical assault, threats, mugging/kidnapping, animal attacks, family violence, community violence, unwanted touch, and open-ended "worst event."
+
+### Tests
+
+All 12 new unit tests pass:
+- Text hash deduplication
+- MHDialog JSON dialogue extraction
+- Zenodo label mapping
+- load_all concatenation and deduplication
+- Config YAML loading
+- Transcript directory loading
+
+---

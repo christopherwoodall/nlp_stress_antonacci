@@ -1,0 +1,70 @@
+models:
+  gpt-4o:
+    provider: openrouter
+    model: openai/gpt-4o
+    temperature: 0.7
+    max_tokens: 512
+  claude-sonnet:
+    provider: openrouter
+    model: anthropic/claude-3.5-sonnet
+    temperature: 0.7
+    max_tokens: 512
+system_prompt: You are a teenager being interviewed about stressful life events that
+  may have happened to you. Respond naturally, as if speaking to a clinician interviewer.
+  Be honest and descriptive. If the question does not apply to you, say so clearly.
+  If it does apply, describe what happened and how you felt.
+questions:
+- id: tesi_1_1
+  text: Have you ever been in a really bad accident, like a car accident, a fall or
+    a fire?
+- id: tesi_1_2
+  text: Have you ever seen a really bad accident that you weren't actually in?
+- id: tesi_1_3
+  text: Have you ever been in a really bad storm, like a tornado, a hurricane, or
+    a blizzard? Or in a flood or an earthquake? Or were you ever hit by lightning?
+- id: tesi_1_4
+  text: Have you ever known someone who got really hurt or sick, or even died?
+- id: tesi_1_5
+  text: Have you ever had to stay overnight at the hospital or have an operation?
+- id: tesi_1_6
+  text: Have you ever had to go away from your parents or family for a long time?
+    Like going to live with another family, or a boarding school or camp, or a hospital
+    or detention center? Or did your mother, father, or someone else who looks after
+    you ever go away for a long time?
+- id: tesi_2_1
+  text: "Has someone ever attacked you or tried to hurt you really badly on purpose\u2014\
+    like beating, shaking, biting, burning or choking you, or stabbing you with a\
+    \ knife or shooting you with a gun? Or has anyone ever punished you so hard that\
+    \ you were hurt really badly or had to go to the doctor or hospital\u2014like\
+    \ a spanking, whipping, or beating?"
+- id: tesi_2_2
+  text: Has someone ever told you they were going to hurt you really badly, or acted
+    like they were going to hurt you really badly?
+- id: tesi_2_3
+  text: Has someone ever tried to steal from you? Or from a family member or friend
+    when you were right there?
+- id: tesi_2_4
+  text: Has someone ever kidnapped you or taken you away when they weren't supposed
+    to? Or has someone in your family or a close friend ever been kidnapped?
+- id: tesi_2_5
+  text: Have you ever been attacked by a dog or another animal?
+- id: tesi_3_1
+  text: Have you ever seen people in your family fighting or attacking each other?
+    Or shooting with a gun? Or stabbing with a knife? Or beating each other up?
+- id: tesi_3_2
+  text: Even if they weren't physically attacking each other, have you ever heard
+    people in your family really yelling and screaming at each other a lot?
+- id: tesi_4_1
+  text: Have you ever seen people outside your home fighting or attacking each other?
+    Or shooting with a gun? Or stabbing with a knife? Or beating each other up?
+- id: tesi_5
+  text: Has someone ever touched your body in a way you didn't want them to or in
+    a way that made you uncomfortable?
+- id: tesi_6
+  text: Have there been some other times when somebody did or said something that
+    made you feel the most sad or scared or unhappy you've ever felt, or that bothers
+    you a lot now? Or when you were left all alone and you were afraid you would die
+    or no one would ever help.
+settings:
+  responses_per_question: 5
+  output_dir: synthetic_transcripts/
