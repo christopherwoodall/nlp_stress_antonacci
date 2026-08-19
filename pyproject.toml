@@ -29,6 +29,7 @@ dependencies = [
     "pyyaml",
     "datasets",
     "tqdm",
+    "sentence-transformers",
 ]
 
 [project.scripts]

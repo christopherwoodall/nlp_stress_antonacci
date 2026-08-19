@@ -2,6 +2,8 @@
 
 This document walks through the complete pipeline from loading substitute datasets to comparing LLMs on synthetic TESI interview responses.
 
+**Quick start:** Run `make help` to see all available targets, or `make all` to run the full pipeline.
+
 ---
 
 ## Prerequisites
@@ -24,6 +26,42 @@ All CLI entry points should now be available:
 - `synthetic`
 - `analysis`
 - `whisperx-process`, `speaker-parse`, `tfidf-generate`, etc.
+
+---
+
+## Makefile Quick Reference
+
+Run `make` or `make help` to see all targets. Key targets:
+
+| Target | What it does |
+|--------|-------------|
+| `make hydrate` | Download TESI PDF, public datasets, sample data |
+| `make datasets` | Load and unify public substitute datasets |
+| `make features` | Extract TF-IDF + embedding features |
+| `make embeddings` | Train model on RoBERTa embeddings |
+| `make tfidf` | Train model on TF-IDF features |
+| `make mock-eval` | Evaluate fake transcripts (no API cost) |
+| `make eval` | Evaluate with real LLM API (requires OPENROUTER_API_KEY) |
+| `make visualize` | Create comparison plots |
+| `make report` | Generate REPORT.md summary |
+| `make all` | Run full pipeline end-to-end |
+| `make test` | Run unit tests |
+| `make test-pipeline` | Run end-to-end integration test |
+| `make clean` | Remove generated files |
+
+---
+
+## Phase 1: Load Public Substitute Datasets
+
+Since the original ELS clinical data is not publicly available, we use labeled substitute datasets.
+
+### Option A: Use the Makefile (recommended)
+
+```bash
+make hydrate   # Downloads TESI PDF + public datasets + sample data
+```
+
+### Option B: Manual CLI commands
 
 ---
 
@@ -72,13 +110,27 @@ head data/unified_dataset.csv
 
 ## Phase 2: Prepare Features for Model Training
 
-The `analysis` CLI expects feature matrices in a specific format. You need to:
+The pipeline extracts two feature representations from the unified dataset:
 
-1. **Extract features** from the unified dataset text column
-2. **Create outcome files** with severity and binary labels
-3. **Merge** into the format expected by the analysis modules
+### Option A: Use the Makefile
 
-### Example: TF-IDF features
+```bash
+make features   # Extracts both TF-IDF and embedding features
+```
+
+This creates:
+- `data/tfidf_features.csv`
+- `data/embedding_features.csv`
+- `data/outcomes.csv`
+- `results/tfidf_vectorizer.joblib`
+
+### Option B: Manual Python scripts
+
+```bash
+python scripts/build_features.py --input data/unified_dataset.csv --output-dir data/ --results-dir results/
+```
+
+### Option C: Manual feature extraction (advanced)
 
 ```python
 import pandas as pd
@@ -106,44 +158,39 @@ import joblib
 joblib.dump(vectorizer, "results/tfidf_vectorizer.joblib")
 ```
 
-### Example: Embeddings features
-
-```python
-from sentence_transformers import SentenceTransformer
-
-model = SentenceTransformer("all-roberta-large-v1")
-embeddings = model.encode(df["text"].tolist(), show_progress_bar=True)
-
-emb_df = pd.DataFrame(embeddings)
-emb_df["ELS_ID"] = range(len(emb_df))
-emb_df.to_csv("data/embedding_features.csv", index=False)
-```
-
 ---
 
 ## Phase 3: Train Models
 
-### Cross-validation analysis (replicates R notebook)
+### Option A: Use the Makefile (per-feature targets)
 
 ```bash
-analysis --feature-type tfidf --mode cv --data-dir data/ --output-dir results/
+make embeddings   # Train on RoBERTa embeddings (default)
+make tfidf        # Train on TF-IDF features
 ```
 
-### Train final model and save to ONNX
+These save:
+- `results/embeddings_model.onnx` / `results/tfidf_model.onnx`
+- Corresponding metrics, coefficients, and scaler files
+
+### Option B: Manual CLI
+
+```bash
+# Train embeddings model
+python scripts/train_model.py --feature-type embeddings --data-dir data/ --output-dir results/
+
+# Train TF-IDF model
+python scripts/train_model.py --feature-type tfidf --data-dir data/ --output-dir results/
+```
+
+### Option C: Original analysis CLI (requires clinical data format)
 
 ```bash
 analysis --feature-type tfidf --mode train --data-dir data/ --output-dir results/
-```
-
-This saves:
-- `results/tfidf_model.onnx` — ONNX model for inference
-- `results/tfidf_coefficients.csv` — feature weights
-
-Repeat for other feature types:
-
-```bash
 analysis --feature-type embeddings --mode train --data-dir data/ --output-dir results/
 ```
+
+**Note:** The `analysis` CLI expects the original clinical data file names. For the substitute dataset pipeline, use `scripts/train_model.py` or the Makefile targets instead.
 
 ---
 
@@ -189,8 +236,23 @@ Get a key at: https://openrouter.ai/keys
 
 ### Generate responses
 
+**Option A: Makefile (real API)**
 ```bash
+make eval   # Generates responses + evaluates with trained models
+```
+
+**Option B: Makefile (mock/fake transcripts — no API cost)**
+```bash
+make mock-eval   # Uses fake transcripts for testing
+```
+
+**Option C: Manual CLI**
+```bash
+# Real API
 synthetic generate --config config/example_generator.yaml --output-dir synthetic_transcripts/
+
+# Mock (no API)
+python scripts/mock_generator.py --output-dir synthetic_transcripts/ --config config/example_generator.yaml
 ```
 
 Output structure:
@@ -210,7 +272,16 @@ synthetic_transcripts/
 
 ## Phase 5: Evaluate LLMs
 
-Run the synthetic transcripts through trained models:
+Run the synthetic transcripts through trained models.
+
+### Option A: Makefile (includes mock-eval for testing)
+
+```bash
+make mock-eval   # Uses fake transcripts + evaluates (no API cost)
+make eval        # Real LLM responses + evaluates (requires OPENROUTER_API_KEY)
+```
+
+### Option B: Manual CLI
 
 ```bash
 synthetic evaluate \
@@ -242,7 +313,16 @@ Output CSV columns:
 
 ## Phase 6: Visualize Comparisons
 
-Generate blog-quality comparison plots:
+Generate blog-quality comparison plots.
+
+### Option A: Makefile
+
+```bash
+make visualize   # Create all comparison plots
+make report      # Generate REPORT.md summary
+```
+
+### Option B: Manual CLI
 
 ```bash
 synthetic visualize \
@@ -259,12 +339,32 @@ Produces:
 
 ---
 
-## Summary of CLI Commands
+## Summary of Commands
+
+### Makefile targets (recommended)
+
+| Target | Purpose |
+|--------|---------|
+| `make hydrate` | Download TESI PDF + public datasets + sample data |
+| `make datasets` | Load and unify public datasets |
+| `make features` | Extract TF-IDF + embedding features |
+| `make embeddings` | Train model on RoBERTa embeddings |
+| `make tfidf` | Train model on TF-IDF features |
+| `make mock-eval` | Evaluate fake transcripts (no API cost) |
+| `make eval` | Evaluate with real LLM API |
+| `make visualize` | Create comparison plots |
+| `make report` | Generate REPORT.md summary |
+| `make all` | Run full pipeline end-to-end |
+| `make test` | Run unit tests |
+| `make test-pipeline` | Run end-to-end integration test |
+| `make clean` | Remove generated files |
+
+### CLI commands (manual)
 
 | Command | Purpose |
 |---------|---------|
 | `datasets-load --sources all --output data/unified.csv` | Load and unify public datasets |
-| `analysis --feature-type tfidf --mode train ...` | Train predictive model |
+| `python scripts/train_model.py --feature-type embeddings ...` | Train predictive model |
 | `synthetic generate --config config/example_generator.yaml` | Generate LLM responses |
 | `synthetic evaluate --transcripts ... --models-dir ...` | Score responses with models |
 | `synthetic visualize --evaluations ... --output-dir ...` | Create comparison plots |

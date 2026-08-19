@@ -108,7 +108,9 @@ def nested_cv_elastic_net(
         cv_r2 : list — per-fold R²
     """
     if alpha_grid is None:
-        alpha_grid = np.arange(0, 1.01, 0.05)
+        # l1_ratio=0 (pure Ridge) is excluded because ElasticNetCV cannot
+        # auto-generate an alpha grid when there is no L1 penalty.
+        alpha_grid = np.arange(0.05, 1.01, 0.05)
 
     outer_cv = KFold(n_splits=n_outer_folds, shuffle=True, random_state=random_state)
     cv_predictions = np.full_like(y, np.nan, dtype=float)
@@ -181,7 +183,9 @@ def train_final_elastic_net(
     full data, then returns the fitted model.
     """
     if alpha_grid is None:
-        alpha_grid = np.arange(0, 1.01, 0.05)
+        # l1_ratio=0 (pure Ridge) is excluded because ElasticNetCV cannot
+        # auto-generate an alpha grid when there is no L1 penalty.
+        alpha_grid = np.arange(0.05, 1.01, 0.05)
 
     model = ElasticNetCV(
         l1_ratio=list(alpha_grid),

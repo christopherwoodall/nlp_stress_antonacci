@@ -215,3 +215,78 @@ All 12 new unit tests pass:
 - Transcript directory loading
 
 ---
+
+## 2026-08-19 — Makefile, Pipeline Scripts, Integration Tests & Documentation
+
+### What changed
+
+Added a self-documenting Makefile and supporting scripts to make the pipeline runnable with simple commands like `make embeddings`, `make tfidf`, `make mock-eval`, and `make all`.
+
+### Files added
+
+- `Makefile` — self-documenting with `##` comment trick; targets: help, hydrate, datasets, features, train, embeddings, tfidf, eval, mock-eval, visualize, report, all, clean, pytest, test-pipeline, test-all
+- `scripts/hydrate.py` — downloads TESI PDF, loads public datasets, generates sample data
+- `scripts/build_features.py` — extracts TF-IDF + RoBERTa embeddings from unified dataset
+- `scripts/train_model.py` — trains elastic-net model on substitute data and saves to ONNX
+- `scripts/mock_generator.py` — creates fake synthetic TESI transcripts for testing (no API cost)
+- `scripts/build_report.py` — generates REPORT.md from pipeline results
+- `scripts/run_pipeline_test.py` — end-to-end integration test: data → features → train → predict → verify
+
+### New dependencies
+
+`sentence-transformers` (for RoBERTa embedding extraction in build_features.py)
+
+### Makefile targets
+
+| Target | Purpose |
+|--------|---------|
+| `make hydrate` | Download TESI PDF + public datasets + sample data |
+| `make datasets` | Load and unify public substitute datasets |
+| `make features` | Extract TF-IDF and embedding features |
+| `make embeddings` | Train model on RoBERTa embeddings |
+| `make tfidf` | Train model on TF-IDF features |
+| `make mock-eval` | Evaluate fake transcripts (no API cost) |
+| `make eval` | Evaluate with real LLM API |
+| `make visualize` | Create comparison plots |
+| `make report` | Generate REPORT.md summary |
+| `make all` | Run full pipeline end-to-end |
+| `make test` | Run unit tests |
+| `make test-pipeline` | Run end-to-end integration test |
+
+### Per-feature training
+
+You can now train on specific feature types:
+```bash
+make embeddings   # RoBERTa embeddings (default)
+make tfidf        # TF-IDF features
+```
+
+### Bug fix
+
+Fixed `ElasticNetCV` crash when `l1_ratio=0` (pure Ridge) was included in the alpha grid. sklearn cannot auto-generate an alpha grid without an L1 penalty. Changed the default grid from `np.arange(0, 1.01, 0.05)` to `np.arange(0.05, 1.01, 0.05)` in both `src/analysis/_base.py` and `scripts/train_model.py`.
+
+### Tests
+
+All 39 tests pass (up from 12):
+- 12 original tests (dataset loaders, synthetic generator/evaluator)
+- 8 new tests for build_features.py (outcomes, TF-IDF shape, vectorizer, merge)
+- 4 new tests for mock_generator.py (directory structure, content, metadata, determinism)
+- 2 new integration tests (full train→predict cycle, CLI invocation)
+- 13 new tests for Makefile (target existence, descriptions)
+
+### Pipeline verification
+
+`make test-pipeline` runs a complete end-to-end test in a temporary directory:
+1. Creates 100 synthetic samples (50 depressed, 50 normal)
+2. Extracts TF-IDF features
+3. Trains elastic-net model
+4. Saves to ONNX
+5. Loads ONNX and predicts
+6. Verifies predictions are finite and span a meaningful range
+
+### Documentation updates
+
+- `PIPELINE.md` — rewritten with Makefile-first instructions; added per-feature targets
+- `NOTE.md` — added Makefile quick-start section and per-feature training examples
+
+---

@@ -53,30 +53,64 @@ This mapping approximates the original study's intent: the binary flag approxima
 
 ## How to Use This Pipeline
 
+### Quick Start (Makefile)
+
+```bash
+make help          # Show all available targets
+make all           # Run full pipeline end-to-end
+make test-pipeline # Run integration test (no API costs)
+```
+
+### Per-Feature Training
+
+The Makefile supports per-feature model training:
+
+```bash
+make embeddings    # Train on RoBERTa embeddings (default)
+make tfidf         # Train on TF-IDF features
+```
+
+### Step-by-Step (Manual)
+
 1. **Load substitute data:**
    ```bash
    datasets-load --sources all --output data/unified_dataset.csv
    ```
 
-2. **Train a model:**
+2. **Extract features:**
    ```bash
-   analysis --feature-type embeddings --mode train --data-dir data/ --output-dir results/
+   python scripts/build_features.py --input data/unified_dataset.csv --output-dir data/ --results-dir results/
    ```
-   (You will need to prepare feature matrices from the unified dataset first.)
 
-3. **Generate synthetic TESI responses:**
+3. **Train a model:**
    ```bash
+   python scripts/train_model.py --feature-type embeddings --data-dir data/ --output-dir results/
+   ```
+
+4. **Generate synthetic TESI responses (real API):**
+   ```bash
+   export OPENROUTER_API_KEY="your-key"
    synthetic generate --config config/example_generator.yaml --output-dir synthetic_transcripts/
    ```
 
-4. **Evaluate LLMs:**
+   Or use mock/fake transcripts for testing (no API cost):
    ```bash
-   synthetic evaluate --transcripts synthetic_transcripts/ --models-dir results/ --output results/evaluations.csv
+   python scripts/mock_generator.py --output-dir synthetic_transcripts/ --config config/example_generator.yaml
    ```
 
-5. **Visualize comparisons:**
+5. **Evaluate LLMs:**
+   ```bash
+   synthetic evaluate --transcripts synthetic_transcripts/ --models-dir results/ --output results/evaluations.csv --feature-type embeddings
+   ```
+
+6. **Visualize comparisons:**
    ```bash
    synthetic visualize --evaluations results/evaluations.csv --output-dir results/synthetic/
+   ```
+
+7. **Generate report:**
+   ```bash
+   python scripts/build_report.py --results-dir results/ --output REPORT.md
    ```
 
 ## TESI Questions
