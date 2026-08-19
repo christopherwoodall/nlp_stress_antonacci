@@ -89,7 +89,7 @@ def extract_tfidf_features(texts: list, vectorizer_path: Optional[Path] = None) 
     """
     from sklearn.feature_extraction.text import TfidfVectorizer
 
-    if vectorizer_path and vectorizer_path.exists():
+    if vectorizer_path and Path(vectorizer_path).exists():
         import joblib
         vectorizer = joblib.load(vectorizer_path)
         return vectorizer.transform(texts).toarray()
