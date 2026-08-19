@@ -51,6 +51,62 @@ This mapping approximates the original study's intent: the binary flag approxima
 4. **Domain mismatch:** TESI asks about traumatic events; substitute data may cover general depression, stress, or suicidality without event narratives.
 5. **Synthetic generation:** The LLM-generated TESI responses are synthetic and may not reflect how real youth respond to clinical interview questions.
 
+## Model Performance on Substitute Data
+
+When trained on the unified substitute dataset (39,081 samples from MHDialog, Zenodo, and joangaes/depression), the TF-IDF model achieved:
+
+| Metric | Value |
+|--------|-------|
+| R² | 0.557 |
+| RMSE | 0.691 |
+| MAE | 0.547 |
+
+**Train/test split:** 80/20 (31,264 train / 7,816 test), random_state=42, no stratification.
+
+**Note:** The embeddings model (RoBERTa, 768 dims) was not fully trained because ElasticNetCV grid search with 1,024 features × 39K samples exceeded reasonable runtime. The TF-IDF model (176 features) trained in ~20 seconds.
+
+## Persona-Based Evaluation
+
+To test whether the model can distinguish between depressed and resilient emotional tones, we generated two synthetic persona datasets and evaluated them against the trained TF-IDF model.
+
+### Mock persona data (engineered templates)
+
+| Persona | Mean Severity | Std Dev |
+|---------|---------------|---------|
+| Depressed | 1.575 | 0.042 |
+| Resilient | 1.467 | 0.006 |
+| **Difference** | **+0.108** | |
+
+The depressed templates were engineered to use words with high positive coefficients (*depression*, *kill*, *die*, *thoughts*, *pain*). The model correctly assigned higher severity to depressed-sounding text.
+
+### Real API data (gpt-4o)
+
+| Persona | Mean Severity | Std Dev |
+|---------|---------------|---------|
+| Depressed | 1.449 | 0.010 |
+| Resilient | 1.515 | 0.008 |
+| **Difference** | **−0.066** | |
+
+Surprisingly, the **resilient** persona scored *higher* than depressed in natural language. The depressed response began with denial ("No, I've never...") which the model interpreted as low severity, while the resilient response was longer and more emotionally verbose, which the model interpreted as high severity.
+
+**Key finding:** The model conflates emotional expressiveness with distress. It cannot reliably distinguish between positive coping language and negative distress language when both are emotionally expressive. This is a known limitation of bag-of-words models trained on social media data where verbosity correlates with distress.
+
+### How to run persona experiments
+
+```bash
+# Generate mock personas (no API cost)
+python scripts/mock_generator.py --config config/persona_depressed.yaml --persona depressed --output-dir synthetic_depressed/
+python scripts/mock_generator.py --config config/persona_resilient.yaml --persona resilient --output-dir synthetic_resilient/
+
+# Evaluate against trained model
+synthetic evaluate --transcripts synthetic_depressed/ --models-dir results/ --output results/evaluations_depressed.csv --feature-type tfidf --vectorizer-path results/tfidf_vectorizer.joblib
+synthetic evaluate --transcripts synthetic_resilient/ --models-dir results/ --output results/evaluations_resilient.csv --feature-type tfidf --vectorizer-path results/tfidf_vectorizer.joblib
+
+# Generate real API personas (budget-conscious: 2 questions × 1 run × 1 model = ~$0.06)
+synthetic generate --config config/persona_depressed_minimal.yaml
+synthetic generate --config config/persona_resilient_minimal.yaml
+```
+
 ## How to Use This Pipeline
 
 ### Quick Start (Makefile)
@@ -127,3 +183,11 @@ If you use this substitute pipeline, please cite both the original study and the
 - Antonacci, C., Uy, J. P., Kwan, K., Giampetruzzi, E., Jones, S., Pennebaker, J. W., & Gotlib, I. H. (2026). Natural language processing of youth speech predicts psychopathology across adolescence. *Nature Mental Health*.
 - Zhang, Y., et al. (2026). MHDash: An Online Platform for Benchmarking Mental Health-Aware AI Assistants. arXiv:2602.00353.
 - Nusrat, M. O., Shahzad, W., & Jamal, S. A. (2024). Multi Class Depression Detection Through Tweets using Artificial Intelligence. arXiv:2404.13104.
+
+---
+
+## See Also
+
+- [README.md](README.md) — Project overview, quick start, installation
+- [PIPELINE.md](PIPELINE.md) — Step-by-step pipeline guide
+- [UPDATE.md](UPDATE.md) — Changelog with all changes and additions

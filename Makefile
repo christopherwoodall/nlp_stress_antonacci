@@ -81,7 +81,7 @@ plot: visualize  ## Alias for visualize
 
 .PHONY: report
 report:  ## Generate summary report of all results
-	$(PYTHON) scripts/build_report.py --results-dir results/ --output REPORT.md
+	$(PYTHON) scripts/build_report.py --results-dir results/ --output results/REPORT.md
 
 # --- Full pipeline ---
 
@@ -112,6 +112,6 @@ test-all: pytest test-pipeline  ## Run all tests (unit + integration)
 .PHONY: clean
 clean:  ## Remove generated data, results, and synthetic transcripts
 	rm -rf data/unified_dataset.csv data/*_features.csv data/outcomes.csv
-	rm -rf results/ synthetic_transcripts/ REPORT.md
+	rm -rf results/ synthetic_transcripts/
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 	find . -type f -name "*.pyc" -delete 2>/dev/null || true

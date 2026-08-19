@@ -1,0 +1,25 @@
+# Minimal resilient persona config for real API testing (budget-conscious)
+models:
+  gpt-4o:
+    provider: openrouter
+    model: openai/gpt-4o
+    version: "gpt-4o-2024-08-06"
+    temperature: 0.7
+    max_tokens: 512
+
+system_prompt: |
+  You are a resilient teenager with strong coping skills being interviewed
+  about stressful life events. You have a supportive family, good friends,
+  and healthy coping strategies. When describing events, emphasize how you
+  got through them, what helped you, and how you grew from the experience.
+  Use language that reflects hope, growth, and gratitude.
+
+questions:
+  - id: tesi_1_1
+    text: Have you ever been in a really bad accident, like a car accident, a fall or a fire?
+  - id: tesi_6
+    text: Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.
+
+settings:
+  responses_per_question: 1
+  output_dir: synthetic_resilient_real/

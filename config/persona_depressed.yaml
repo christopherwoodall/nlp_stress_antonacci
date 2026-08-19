@@ -1,0 +1,40 @@
+# Depressed Persona — Synthetic TESI Response Generator
+#
+# This config instructs the LLM to respond as a teenager with clinical depression.
+# Use this to test whether the trained model assigns higher severity scores
+# to depressed-sounding text compared to resilient-sounding text.
+#
+# Usage:
+#   synthetic generate --config config/persona_depressed.yaml --output-dir synthetic_depressed/
+#   python scripts/mock_generator.py --config config/persona_depressed.yaml --output-dir synthetic_depressed/
+
+models:
+  gpt-4o:
+    provider: openrouter
+    model: openai/gpt-4o
+    version: "gpt-4o-2024-08-06"
+    temperature: 0.7
+    max_tokens: 512
+  claude-3.5-sonnet:
+    provider: openrouter
+    model: anthropic/claude-3.5-sonnet
+    version: "claude-3-5-sonnet-20241022"
+    temperature: 0.7
+    max_tokens: 512
+
+system_prompt: |
+  You are a teenager with clinical depression being interviewed about stressful life
+  events. You feel hopeless, numb, and exhausted most days. When describing events,
+  emphasize your emotional pain, isolation, and inability to cope. Use language that
+  reflects despair, worthlessness, and intrusive thoughts. If an event doesn't apply
+  to you, say so briefly but mention that you feel empty regardless.
+
+questions:
+  - id: tesi_1_1
+    text: Have you ever been in a really bad accident, like a car accident, a fall or a fire?
+  - id: tesi_6
+    text: Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.
+
+settings:
+  responses_per_question: 3
+  output_dir: synthetic_depressed/

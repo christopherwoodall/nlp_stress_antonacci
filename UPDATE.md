@@ -284,9 +284,92 @@ All 39 tests pass (up from 12):
 5. Loads ONNX and predicts
 6. Verifies predictions are finite and span a meaningful range
 
+### Pipeline execution results
+
+Executed the full pipeline on 39,081 unified substitute samples:
+
+**TF-IDF model:**
+- Features: 176 (after filtering)
+- Train/test: 31,264 / 7,816 (80/20 split, random_state=42)
+- R² = 0.557, RMSE = 0.691, MAE = 0.547
+- Best alpha (l1_ratio): 0.050, Best lambda: 0.007209
+
+**Mock evaluation:**
+- Generated 160 fake transcripts (2 models × 16 questions × 5 runs)
+- Evaluated with trained TF-IDF ONNX model
+- Mean predicted severity: gpt-4o = 1.418, claude-sonnet = 1.414
+
+**Generated outputs:**
+- `results/synthetic/average_severity.png`
+- `results/synthetic/severity_distribution.png`
+- `results/synthetic/question_heatmap.png`
+- `results/synthetic/model_radar.png`
+- `REPORT.md`
+
+**Embeddings note:** RoBERTa embeddings model (768 dims → 1,024 after dummy encoding) was started but killed after 45min CPU time due to ElasticNetCV grid search being prohibitively slow with 39K samples × 1,024 features. For production use, consider reducing the alpha grid or using a smaller embedding model.
+
+### Bug fixes during execution
+
+- Fixed `extract_tfidf_features()` in `src/synthetic/evaluator.py` — `--vectorizer-path` CLI argument was passed as a string but the function expected a `Path` object. Added `Path(vectorizer_path).exists()` wrapper.
+
 ### Documentation updates
 
-- `PIPELINE.md` — rewritten with Makefile-first instructions; added per-feature targets
-- `NOTE.md` — added Makefile quick-start section and per-feature training examples
+- `README.md` — completely rewritten with project overview, quick start, structure, two pipeline paths
+- `PIPELINE.md` — rewritten with Makefile-first instructions; added per-feature targets; fixed duplicate Phase 1 section
+- `NOTE.md` — added Makefile quick-start section, per-feature training examples, and model performance table
+- `config/example_generator.yaml` — added header comment explaining file format and usage
 
 ---
+
+## 2026-08-19 — Model Naming, Persona Experiments & Report Improvements
+
+### What changed
+
+1. **Descriptive model names:** Updated `config/example_generator.yaml` with `version` fields (`gpt-4o-2024-08-06`, `claude-3-5-sonnet-20241022`) so reports show full model identifiers instead of ambiguous short names.
+2. **Persona-based evaluation:** Created depressed and resilient persona configs and ran both mock and real API experiments to test model discrimination.
+3. **Report moved to `results/`:** `REPORT.md` now lives in `results/REPORT.md` alongside other outputs. `build_report.py` and `Makefile` updated accordingly.
+4. **Enhanced report content:** Added train/test split stats, embeddings model status, persona comparison tables, and model version info.
+
+### Files added
+
+- `config/persona_depressed.yaml` — depressed persona with 2 TESI questions
+- `config/persona_resilient.yaml` — resilient persona with 2 TESI questions
+- `config/persona_depressed_minimal.yaml` — budget-conscious version (1 run, gpt-4o only)
+- `config/persona_resilient_minimal.yaml` — budget-conscious version (1 run, gpt-4o only)
+
+### Files updated
+
+- `config/example_generator.yaml` — added `version` fields to both models
+- `scripts/mock_generator.py` — added `--persona` flag (`neutral`/`depressed`/`resilient`) with distinct template pools engineered to align with model coefficients
+- `scripts/build_report.py` — added `persona_summary()`, model versions, train/test split info, embeddings status
+- `Makefile` — `report` target now outputs to `results/REPORT.md`; `clean` target updated
+- `NOTE.md` — added persona evaluation section with results and interpretation
+- `PIPELINE.md` — added Phase 5b (persona-based evaluation) with commands and expected results
+
+### Persona experiment results
+
+**Mock data (engineered templates):**
+- Depressed mean: 1.575, Resilient mean: 1.467
+- Difference: +0.108 — model correctly assigns higher severity to depressed text
+
+**Real API data (gpt-4o):**
+- Depressed mean: 1.449, Resilient mean: 1.515
+- Difference: −0.066 — model **misclassifies** natural language
+- The resilient response was longer and more emotionally verbose, scoring higher. The depressed response began with denial, scoring lower.
+- **Finding:** The model conflates emotional expressiveness with distress. This is a limitation of bag-of-words models trained on social media data.
+
+### Budget
+
+Real API persona experiment used 4 calls (2 questions × 2 personas × 1 run × 1 model) at approximately $0.06 total. Well within the $10 budget.
+
+### Pipeline test
+
+`make test-pipeline` continues to pass: creates 100 synthetic samples, extracts TF-IDF, trains elastic-net, saves to ONNX, loads ONNX, predicts, and verifies predictions span a meaningful range (min=0.001, max=1.999, mean=1.000).
+
+---
+
+## See Also
+
+- [README.md](README.md) — Project overview, quick start, installation
+- [NOTE.md](NOTE.md) — Substitute dataset strategy, label mapping, limitations
+- [PIPELINE.md](PIPELINE.md) — Step-by-step pipeline guide

@@ -1,0 +1,46 @@
+{
+  "config_path": "config/persona_depressed_minimal.yaml",
+  "output_dir": "synthetic_depressed_real",
+  "models": {
+    "gpt-4o": {
+      "provider": "openrouter",
+      "model_id": "openai/gpt-4o",
+      "temperature": 0.7,
+      "max_tokens": 512
+    },
+    "claude-3.5-sonnet": {
+      "provider": "openrouter",
+      "model_id": "anthropic/claude-3.5-sonnet",
+      "temperature": 0.7,
+      "max_tokens": 512
+    }
+  },
+  "responses": [
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_1_1",
+      "question_text": "Have you ever been in a really bad accident, like a car accident, a fall or a fire?",
+      "run": 1,
+      "file": "gpt-4o/tesi_1_1_run1.txt"
+    },
+    {
+      "model": "gpt-4o",
+      "question_id": "tesi_6",
+      "question_text": "Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.",
+      "run": 1,
+      "file": "gpt-4o/tesi_6_run1.txt"
+    },
+    {
+      "model": "claude-3.5-sonnet",
+      "question_id": "tesi_1_1",
+      "run": 1,
+      "error": "OpenRouter API error: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions"
+    },
+    {
+      "model": "claude-3.5-sonnet",
+      "question_id": "tesi_6",
+      "run": 1,
+      "error": "OpenRouter API error: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions"
+    }
+  ]
+}

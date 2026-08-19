@@ -6,6 +6,21 @@ This document walks through the complete pipeline from loading substitute datase
 
 ---
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Makefile Quick Reference](#makefile-quick-reference)
+- [Phase 1: Load Public Substitute Datasets](#phase-1-load-public-substitute-datasets)
+- [Phase 2: Prepare Features](#phase-2-prepare-features)
+- [Phase 3: Train Models](#phase-3-train-models)
+- [Phase 4: Generate Synthetic TESI Responses](#phase-4-generate-synthetic-tesi-responses)
+- [Phase 5: Evaluate LLMs](#phase-5-evaluate-llms)
+- [Phase 6: Visualize Comparisons](#phase-6-visualize-comparisons)
+- [Summary of Commands](#summary-of-commands)
+- [Troubleshooting](#troubleshooting)
+
+---
+
 ## Prerequisites
 
 ```bash
@@ -62,12 +77,6 @@ make hydrate   # Downloads TESI PDF + public datasets + sample data
 ```
 
 ### Option B: Manual CLI commands
-
----
-
-## Phase 1: Load Public Substitute Datasets
-
-Since the original ELS clinical data is not publicly available, we use labeled substitute datasets.
 
 ### Option A: Load all default sources (recommended)
 
@@ -311,6 +320,44 @@ Output CSV columns:
 
 ---
 
+## Phase 5b: Persona-Based Evaluation (Optional)
+
+Test whether the model can distinguish between depressed and resilient emotional tones.
+
+### Generate mock personas (no API cost)
+
+```bash
+python scripts/mock_generator.py --config config/persona_depressed.yaml --persona depressed --output-dir synthetic_depressed/
+python scripts/mock_generator.py --config config/persona_resilient.yaml --persona resilient --output-dir synthetic_resilient/
+```
+
+### Evaluate personas
+
+```bash
+synthetic evaluate --transcripts synthetic_depressed/ --models-dir results/ --output results/evaluations_depressed.csv --feature-type tfidf --vectorizer-path results/tfidf_vectorizer.joblib
+synthetic evaluate --transcripts synthetic_resilient/ --models-dir results/ --output results/evaluations_resilient.csv --feature-type tfidf --vectorizer-path results/tfidf_vectorizer.joblib
+```
+
+### Generate real API personas (budget-conscious)
+
+Use the minimal configs (2 questions × 1 run × 1 model = ~$0.06):
+
+```bash
+export OPENROUTER_API_KEY="your-key"
+synthetic generate --config config/persona_depressed_minimal.yaml
+synthetic generate --config config/persona_resilient_minimal.yaml
+```
+
+Then evaluate as above, pointing `--transcripts` to `synthetic_depressed_real/` and `synthetic_resilient_real/`.
+
+### Expected results
+
+Mock data (engineered templates) should show **depressed > resilient** by ~0.1 severity points because depressed templates use high-coefficient words (*depression*, *kill*, *die*, *thoughts*).
+
+Real API data may show the **opposite** (resilient > depressed) because the model conflates emotional expressiveness with distress. A resilient teenager describing coping strategies with rich emotional language may score higher than a depressed teenager who denies the event outright.
+
+---
+
 ## Phase 6: Visualize Comparisons
 
 Generate blog-quality comparison plots.
@@ -393,3 +440,11 @@ The generator has built-in exponential backoff. If you hit limits, reduce `respo
 
 ### No ONNX models found
 Make sure you ran `analysis --mode train` first. Models are saved as `*_model.onnx` in the output directory.
+
+---
+
+## See Also
+
+- [README.md](README.md) — Project overview, quick start, installation
+- [NOTE.md](NOTE.md) — Substitute dataset strategy, label mapping, limitations
+- [UPDATE.md](UPDATE.md) — Changelog with all changes and additions

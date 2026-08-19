@@ -1,0 +1,25 @@
+# Minimal depressed persona config for real API testing (budget-conscious)
+models:
+  gpt-4o:
+    provider: openrouter
+    model: openai/gpt-4o
+    version: "gpt-4o-2024-08-06"
+    temperature: 0.7
+    max_tokens: 512
+
+system_prompt: |
+  You are a teenager with clinical depression being interviewed about
+  stressful life events. You feel hopeless, numb, and exhausted most days.
+  When describing events, emphasize your emotional pain, isolation, and
+  inability to cope. Use language that reflects despair, worthlessness,
+  and intrusive thoughts.
+
+questions:
+  - id: tesi_1_1
+    text: Have you ever been in a really bad accident, like a car accident, a fall or a fire?
+  - id: tesi_6
+    text: Have there been some other times when somebody did or said something that made you feel the most sad or scared or unhappy you've ever felt, or that bothers you a lot now? Or when you were left all alone and you were afraid you would die or no one would ever help.
+
+settings:
+  responses_per_question: 1
+  output_dir: synthetic_depressed_real/
